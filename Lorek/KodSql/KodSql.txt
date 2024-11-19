@@ -1,0 +1,12 @@
+CREATE DATABASE KioskDB;
+
+USE KioskDB;
+
+-- таблица
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- дентификатор товара
+    name VARCHAR(255) NOT NULL,        -- Название товара (например, "газета", "журнал", "книга")
+    category ENUM('Газета', 'Журнал', 'Книга') NOT NULL, -- Категория
+    quantity INT NOT NULL,             -- Колв экземпляров
+    price DECIMAL(10, 2) NOT NULL      -- Цена за один
+);
