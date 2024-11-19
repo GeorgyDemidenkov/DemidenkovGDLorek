@@ -1,1 +1,1 @@
-# GeorgyDemidenkov-DemidenkovGDLorek
+All classes, files, etc. are left in the untitled2 folder. The database was created using SQL code. The code for creating the database is in the KodSql txt file.
