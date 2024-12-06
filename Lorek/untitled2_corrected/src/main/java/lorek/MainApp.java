@@ -143,7 +143,7 @@ public class MainApp {
                     updateStmt.executeUpdate();
                     System.out.println("Товар успешно продан. Оставшееся количество: " + newQuantity);
                     if (newQuantity == 0) {
-                        // Удаление товара исключено
+                        deleteProduct(id);
                     }
                 }
             } else {
@@ -154,6 +154,16 @@ public class MainApp {
         }
     }
 
+    private void deleteProduct(int id) {
+        String query = "DELETE FROM products WHERE id = ?";
+        try (PreparedStatement statement = this.connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            statement.executeUpdate();
+            System.out.println("Товар с ID " + id + " был удалён, так как его количество стало равно нулю.");
+        } catch (SQLException e) {
+            System.err.println("Ошибка при удалении товара: " + e.getMessage());
+        }
+    }
 
     private void executeShowAllProducts() {
         String query = "SELECT * FROM products";
